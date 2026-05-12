@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { useNavigation } from "@/store/use-navigation"
 import { 
   LayoutDashboard, 
   ShoppingCart, 
@@ -21,6 +22,7 @@ const mobileNav = [
 
 export function BottomNav() {
   const pathname = usePathname()
+  const { toggleMobileMenu } = useNavigation()
 
   return (
     <nav 
@@ -30,14 +32,18 @@ export function BottomNav() {
       <div className="flex items-center justify-between w-full">
         {mobileNav.map((item) => {
           const isActive = pathname === item.href
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
+          const isMore = item.name === "المزيد"
+
+          const content = (
+            <div
               className={cn(
-                "flex flex-col items-center justify-center gap-1.5 transition-all duration-300 active:scale-90",
+                "flex flex-col items-center justify-center gap-1.5 transition-all duration-300 active:scale-90 cursor-pointer group",
                 isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
               )}
+              onClick={isMore ? (e) => {
+                e.preventDefault()
+                toggleMobileMenu()
+              } : undefined}
             >
               <div className={cn(
                 "p-2 rounded-2xl transition-all duration-300",
@@ -54,6 +60,14 @@ export function BottomNav() {
               )}>
                 {item.name}
               </span>
+            </div>
+          )
+
+          if (isMore) return <div key={item.name}>{content}</div>
+
+          return (
+            <Link key={item.name} href={item.href}>
+              {content}
             </Link>
           )
         })}

@@ -2,6 +2,7 @@
 
 import { Sidebar } from "./sidebar/sidebar"
 import { BottomNav } from "./bottom-nav/bottom-nav"
+import { MobileMenu } from "./bottom-nav/mobile-menu"
 import { cn } from "@/lib/utils"
 import { useNavigation } from "@/store/use-navigation"
 
@@ -27,6 +28,7 @@ export function ShellLayout({ children }: { children: React.ReactNode }) {
 
       {/* Mobile Bottom Navigation */}
       <BottomNav />
+      <MobileMenu />
     </div>
   )
 }
