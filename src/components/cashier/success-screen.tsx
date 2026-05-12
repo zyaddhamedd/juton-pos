@@ -7,15 +7,22 @@ import { Currency } from "@/components/ui/currency"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 
+import { InvoicePreview } from "./invoice-preview"
+import * as React from "react"
+
 interface SuccessScreenProps {
   total: number
   invoiceId: string
+  items: any[]
+  customer?: any
   onNewInvoice: () => void
 }
 
-export function SuccessScreen({ total, invoiceId, onNewInvoice }: SuccessScreenProps) {
+export function SuccessScreen({ total, invoiceId, items, customer, onNewInvoice }: SuccessScreenProps) {
+  const [isInvoiceOpen, setIsInvoiceOpen] = React.useState(false)
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-0 text-center p-4 lg:p-6 bg-[radial-gradient(circle_at_top,_var(--color-success),_transparent_70%)] opacity-95">
+    <div className="flex flex-col items-center justify-center min-h-screen text-center p-4 lg:p-6 bg-[radial-gradient(circle_at_top,_var(--color-success),_transparent_70%)] opacity-95">
       {/* 1. Compact Success Icon */}
       <motion.div
         initial={{ scale: 0, rotate: -45 }}
@@ -62,10 +69,11 @@ export function SuccessScreen({ total, invoiceId, onNewInvoice }: SuccessScreenP
       >
         <Button 
           variant="secondary" 
+          onClick={() => setIsInvoiceOpen(true)}
           className="h-14 rounded-2xl bg-card border-border/30 hover:bg-secondary font-black text-xs" 
-          leftIcon={<Printer className="h-5 w-5 text-accent" />}
+          leftIcon={<FileText className="h-5 w-5 text-accent" />}
         >
-           طباعة حرارية
+           عرض الفاتورة
         </Button>
         <Button 
           variant="secondary" 
@@ -97,6 +105,15 @@ export function SuccessScreen({ total, invoiceId, onNewInvoice }: SuccessScreenP
           العودة للوحة التحكم
         </Link>
       </motion.div>
+
+      <InvoicePreview 
+        isOpen={isInvoiceOpen}
+        onClose={() => setIsInvoiceOpen(false)}
+        invoiceId={invoiceId}
+        items={items}
+        total={total}
+        customer={customer}
+      />
     </div>
   )
 }

@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils"
 
 export default function CashierPage() {
   const { view, setView, searchQuery, setSearchQuery, selectedCategory, setSelectedCategory } = useCashierView()
-  const { items, addItem, removeItem, updateQuantity, getTotal, getItemCount, clearCart } = useCart()
+  const { items, addItem, removeItem, updateQuantity, getTotal, getItemCount, clearCart, customer } = useCart()
   
   const [isFullscreen, setIsFullscreen] = React.useState(false)
   const [isColorPickerOpen, setIsColorPickerOpen] = React.useState(false)
@@ -63,6 +63,8 @@ export default function CashierPage() {
       <SuccessScreen 
         total={getTotal() * 1.14}
         invoiceId={`JOT-${new Date().getTime().toString().slice(-6)}`}
+        items={items}
+        customer={customer}
         onNewInvoice={() => {
           clearCart()
           setView('products')
