@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-ibm-plex-sans-arabic), ui-sans-serif, system-ui, sans-serif;
+  
+  /* JOTUN BRAND COLORS */
+  --color-primary: #003DA5;        /* JOTUN Premium Blue */
+  --color-primary-light: #0042C2;
+  --color-primary-dark: #002B7F;
+  
+  --color-accent: #F7C600;         /* JOTUN Signature Yellow */
+  --color-accent-foreground: #000000;
+  
+  --color-danger: #E21A22;         /* JOTUN Critical Red */
+  --color-danger-foreground: #FFFFFF;
+  
+  --color-success: #10B981;        /* Operational Emerald */
+
+  /* INDUSTRIAL SURFACES */
+  --color-background: #080A0F;     /* Obsidian */
+  --color-foreground: #F8FAFC;
+  
+  --color-card: #11151F;           /* Surface 1 */
+  --color-card-hover: #161B29;
+  
+  --color-secondary: #1A212E;      /* Surface 2 */
+  --color-muted: #1A212E;
+  --color-muted-foreground: #94A3B8;
+  
+  --color-border: #1E293B;
+  --color-border-bright: #334155;
+  
+  --color-ring: #F7C600;           /* Focus on Yellow */
+
+  /* PREMIUM MATERIALS */
+  --color-glass: rgba(17, 21, 31, 0.7);
+
+  /* Radius System */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  /* Shadow System - Deeper & More Realistic */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}

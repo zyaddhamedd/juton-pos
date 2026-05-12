@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "_backend-mastery": {
+      "source": "diegosouzapw/awesome-omni-skill",
+      "sourceType": "github",
+      "skillPath": "skills/development/_backend-mastery/SKILL.md",
+      "computedHash": "1c6cba72cd02e84197ea02da5971f3fa66f95e1ad3dd2cb58023700d7a0b6393"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "6337038fe1fe6bbe1b9f252ab678ee575859190bab6f0f246f4061824eb40875"
+    }
+  }
+}
