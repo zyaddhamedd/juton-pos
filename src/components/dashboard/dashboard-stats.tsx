@@ -75,32 +75,32 @@ export function DashboardStats() {
   const stats = [
     {
       title: "مبيعات اليوم",
-      value: "١٢,٤٥٠ ج.م",
-      change: "+١٢.٥٪",
+      value: "12,450 ج.م",
+      change: "+12.5%",
       trend: "up",
       icon: TrendingUp,
       color: "bg-blue-500"
     },
     {
       title: "رصيد الخزينة",
-      value: "٤٥,٨٠٠ ج.م",
-      change: "+٥.٢٪",
+      value: "45,800 ج.م",
+      change: "+5.2%",
       trend: "up",
       icon: Wallet,
       color: "bg-emerald-500"
     },
     {
       title: "نواقص المخزون",
-      value: "١٤ منتج",
-      change: "-٢",
+      value: "14 منتج",
+      change: "-2",
       trend: "down",
       icon: Package2,
       color: "bg-orange-500"
     },
     {
       title: "عملاء نشطون",
-      value: "١٢٤",
-      change: "+٨",
+      value: "124",
+      change: "+8",
       trend: "up",
       icon: Users2,
       color: "bg-purple-500"
