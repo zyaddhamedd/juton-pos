@@ -39,7 +39,7 @@ export function CashflowTimeline() {
     <Card className="flex flex-col h-full overflow-hidden">
       <div className="p-4 border-b border-border flex items-center justify-between bg-card/50">
         <h3 className="font-semibold">حركة التدفق النقدي (Timeline)</h3>
-        <Badge variant="outline" className="font-normal text-xs">محدث لحظياً</Badge>
+        <Badge variant="neutral" className="font-normal text-xs">محدث لحظياً</Badge>
       </div>
       
       <div className="flex-1 overflow-y-auto p-0">
@@ -85,7 +85,7 @@ export function CashflowTimeline() {
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="bg-muted/10 text-[9px] px-1.5 py-0 border-border/50 text-muted-foreground">
+                    <Badge variant="neutral" className="bg-muted/10 text-[9px] px-1.5 py-0 border-border/50 text-muted-foreground">
                       {methodLabels[tx.method]}
                       {tx.toMethod && ` ➔ ${methodLabels[tx.toMethod]}`}
                     </Badge>

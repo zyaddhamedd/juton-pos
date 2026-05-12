@@ -46,7 +46,7 @@ export function InventoryAlerts() {
             </div>
             
             <div className="text-left">
-              <Badge variant={product.stock === 0 ? "destructive" : "warning"} className="text-[10px] px-2 py-0.5">
+              <Badge variant={product.stock === 0 ? "error" : "warning"} className="text-[10px] px-2 py-0.5">
                 {product.stock === 0 ? "نفذ" : `${product.stock} ق`}
               </Badge>
             </div>
