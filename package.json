@@ -1,7 +1,8 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "juton-pos",
+  "version": "1.0.0",
+  "author": "Zyad Hamed",
+  "description": "Professional Point of Sale System for JUTON Retail",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
