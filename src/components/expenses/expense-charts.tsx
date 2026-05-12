@@ -12,7 +12,7 @@ export function ExpenseCharts({ expenses }: { expenses: any[] }) {
     return acc
   }, {})
 
-  const total = Object.values(categoryTotals).reduce((sum: any, val: any) => sum + val, 0)
+  const total = Object.values(categoryTotals).reduce((sum: number, val: any) => sum + (val as number), 0)
   const sortedCategories = Object.entries(categoryTotals)
     .sort((a: any, b: any) => b[1] - a[1])
     .map(([id, amount]) => {
@@ -22,7 +22,7 @@ export function ExpenseCharts({ expenses }: { expenses: any[] }) {
         label: cat?.label || id,
         color: cat?.color || "#94A3B8",
         amount: amount as number,
-        percent: ((amount as number) / total) * 100
+        percent: total > 0 ? ((amount as number) / total) * 100 : 0
       }
     })
 

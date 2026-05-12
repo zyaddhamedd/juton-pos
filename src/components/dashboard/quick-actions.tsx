@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Plus, Receipt, PackageSearch, ReceiptArabic, Wallet2 } from "lucide-react"
+import { Plus, Receipt, PackageSearch, Wallet2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 

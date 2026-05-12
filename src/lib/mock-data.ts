@@ -7,6 +7,8 @@ export interface Product {
   stock: number
   sku: string
   colorCode?: string
+  minStock?: number
+  unit?: string
 }
 
 export interface Customer {

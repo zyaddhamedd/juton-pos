@@ -83,7 +83,7 @@ export function QuickActions({
         <div className="lg:hidden flex flex-col gap-4">
           <div className="flex items-center justify-between px-2">
             <h3 className="text-lg font-black tracking-tight">إجراءات الخزنة</h3>
-            <Button variant="link" onClick={() => setIsActionsSheetOpen(true)} className="text-primary font-bold">عرض الكل</Button>
+            <Button variant="ghost" onClick={() => setIsActionsSheetOpen(true)} className="text-primary font-bold underline">عرض الكل</Button>
           </div>
           <ActionGrid isMobile />
         </div>

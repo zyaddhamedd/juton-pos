@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react"
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof HTMLMotionProps<"button">>,
     HTMLMotionProps<"button"> {
+  children?: React.ReactNode
   variant?: "primary" | "secondary" | "ghost" | "accent" | "danger" | "success" | "outline"
   size?: "sm" | "md" | "lg" | "xl" | "icon"
   isLoading?: boolean

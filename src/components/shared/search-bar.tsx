@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Search, X, History, ArrowLeft, Loader2 } from "lucide-react"
+import { Search, X, History, ArrowLeft, Loader2, Package } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 

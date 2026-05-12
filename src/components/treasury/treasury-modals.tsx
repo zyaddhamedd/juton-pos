@@ -68,7 +68,7 @@ export function DepositModal({ isOpen, onClose }: ModalProps) {
             {(['cash', 'visa', 'instapay'] as const).map((m) => (
               <Button
                 key={m}
-                variant={method === m ? "default" : "outline"}
+                variant={method === m ? "primary" : "outline"}
                 onClick={() => setMethod(m)}
                 className="capitalize"
               >
@@ -162,7 +162,7 @@ export function WithdrawalModal({ isOpen, onClose }: ModalProps) {
 
         <Button 
           onClick={handleSubmit} 
-          variant="destructive" 
+          variant="danger" 
           className="w-full h-12 text-lg font-bold"
           disabled={!amount || !reason}
         >
@@ -207,7 +207,7 @@ export function TransferModal({ isOpen, onClose }: ModalProps) {
               {(['cash', 'visa', 'instapay'] as const).map((m) => (
                 <Button
                   key={m}
-                  variant={from === m ? "default" : "outline"}
+                  variant={from === m ? "primary" : "outline"}
                   onClick={() => setFrom(m)}
                   className="h-12"
                   disabled={to === m}
@@ -223,7 +223,7 @@ export function TransferModal({ isOpen, onClose }: ModalProps) {
               {(['cash', 'visa', 'instapay'] as const).map((m) => (
                 <Button
                   key={m}
-                  variant={to === m ? "default" : "outline"}
+                  variant={to === m ? "primary" : "outline"}
                   onClick={() => setTo(m)}
                   className="h-12"
                   disabled={from === m}
@@ -297,6 +297,7 @@ export function SettlementModal({ isOpen, onClose }: ModalProps) {
             onChange={(e) => setActual(e.target.value)}
             className="text-2xl h-14 font-bold"
           />
+          <Button variant="ghost" onClick={() => {}} className="text-primary font-bold underline">عرض الكل</Button>
         </div>
 
         <div className="space-y-2">

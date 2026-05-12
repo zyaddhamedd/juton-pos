@@ -10,8 +10,8 @@ interface Product {
   category: string
   stock: number
   price: number
-  minStock: number
-  unit: string
+  minStock?: number
+  unit?: string
 }
 
 interface InventoryStore {
