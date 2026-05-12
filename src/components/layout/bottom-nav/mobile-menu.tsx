@@ -2,6 +2,9 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useNavigation } from "@/store/use-navigation"
+import { BottomSheet } from "@/components/shared/bottom-sheet"
+import { cn } from "@/lib/utils"
 import { 
   LayoutDashboard, 
   ShoppingCart, 
