@@ -35,6 +35,7 @@ export const PRODUCTS: Product[] = [
     price: 1250,
     stock: 45,
     sku: "JTN-FM-10",
+    image: "/images/products/paint-1.png"
   },
   {
     id: "2",
@@ -44,6 +45,7 @@ export const PRODUCTS: Product[] = [
     stock: 12,
     sku: "JTN-FS-36",
     colorCode: "#F5F5DC",
+    image: "/images/products/paint-2.png"
   },
   {
     id: "3",
@@ -52,6 +54,7 @@ export const PRODUCTS: Product[] = [
     price: 320,
     stock: 80,
     sku: "JTN-PTY-20",
+    image: "/images/products/putty-1.png"
   },
   {
     id: "4",
@@ -60,6 +63,7 @@ export const PRODUCTS: Product[] = [
     price: 85,
     stock: 200,
     sku: "TL-BR-4",
+    image: "/images/products/brush-1.png"
   },
   {
     id: "5",
@@ -68,6 +72,7 @@ export const PRODUCTS: Product[] = [
     price: 110,
     stock: 5,
     sku: "TL-RL-LG",
+    image: "/images/products/brush-1.png"
   },
   {
     id: "6",
@@ -76,6 +81,7 @@ export const PRODUCTS: Product[] = [
     price: 2450,
     stock: 22,
     sku: "JTN-GS-15",
+    image: "/images/products/paint-1.png"
   },
   {
     id: "7",
@@ -92,6 +98,7 @@ export const PRODUCTS: Product[] = [
     price: 65,
     stock: 0,
     sku: "PTY-FIX-1",
+    image: "/images/products/putty-1.png"
   },
   {
     id: "9",
@@ -100,6 +107,7 @@ export const PRODUCTS: Product[] = [
     price: 620,
     stock: 35,
     sku: "JTN-FL-36",
+    image: "/images/products/paint-2.png"
   },
   {
     id: "10",
@@ -108,6 +116,7 @@ export const PRODUCTS: Product[] = [
     price: 45,
     stock: 15,
     sku: "TL-PTY-KN",
+    image: "/images/products/brush-1.png"
   },
   {
     id: "11",
@@ -124,6 +133,7 @@ export const PRODUCTS: Product[] = [
     price: 850,
     stock: 8,
     sku: "JTN-PR-18",
+    image: "/images/products/paint-1.png"
   },
 ]
 
