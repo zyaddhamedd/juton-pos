@@ -76,8 +76,8 @@ export function ExpenseDetailsDrawer({ expense, isOpen, onClose, onEdit, onDelet
       <div className="grid grid-cols-2 gap-4">
          <DetailItem icon={<Tag className="h-4 w-4" />} label="التصنيف" value={category?.label || expense.category} />
          <DetailItem icon={<CreditCard className="h-4 w-4" />} label="طريقة الدفع" value={expense.paymentMethod === 'cash' ? 'نقدي' : expense.paymentMethod === 'card' ? 'فيزا' : 'بنكي'} />
-         <DetailItem icon={<Calendar className="h-4 w-4" />} label="التاريخ" value={format(new Date(expense.date), "dd MMMM yyyy", { locale: ar })} />
-         <DetailItem icon={<Clock className="h-4 w-4" />} label="الوقت" value={format(new Date(expense.date), "hh:mm aa", { locale: ar })} />
+         <DetailItem icon={<Calendar className="h-4 w-4" />} label="التاريخ" value={format(new Date(expense.date), "dd MMMM yyyy")} />
+         <DetailItem icon={<Clock className="h-4 w-4" />} label="الوقت" value={format(new Date(expense.date), "hh:mm aa")} />
          <DetailItem icon={<User className="h-4 w-4" />} label="الموظف" value={expense.employee} />
          <DetailItem icon={<History className="h-4 w-4" />} label="آخر تحديث" value={format(new Date(expense.updatedAt), "dd/MM/yyyy HH:mm")} />
       </div>

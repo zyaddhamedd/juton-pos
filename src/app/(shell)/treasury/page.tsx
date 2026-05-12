@@ -89,19 +89,19 @@ export default function TreasuryPage() {
       <div className="lg:hidden sticky top-[-24px] z-50 bg-background/95 backdrop-blur-xl -mx-4 px-4 py-4 border-b border-border/50 mb-4 shadow-sm overflow-x-auto no-scrollbar flex gap-3">
         <div className="px-4 py-2 bg-primary/10 rounded-2xl flex flex-col gap-0.5 shrink-0 border border-primary/20 min-w-[120px]">
           <span className="text-[10px] text-muted-foreground font-bold">إجمالي الرصيد</span>
-          <span className="text-base font-black text-primary">{(balances.cash + balances.visa + balances.instapay).toLocaleString()}</span>
+          <span className="text-base font-black text-primary">{(balances.cash + balances.visa + balances.instapay).toLocaleString('en-US')}</span>
         </div>
         <div className="px-4 py-2 bg-success/10 rounded-2xl flex flex-col gap-0.5 shrink-0 border border-success/20 min-w-[100px]">
           <span className="text-[10px] text-muted-foreground font-bold">النقدية (كاش)</span>
-          <span className="text-base font-black text-success">{balances.cash.toLocaleString()}</span>
+          <span className="text-base font-black text-success">{balances.cash.toLocaleString('en-US')}</span>
         </div>
         <div className="px-4 py-2 bg-accent/10 rounded-2xl flex flex-col gap-0.5 shrink-0 border border-accent/20 min-w-[100px]">
           <span className="text-[10px] text-muted-foreground font-bold">فيزا / ديجيتال</span>
-          <span className="text-base font-black text-accent">{balances.visa.toLocaleString()}</span>
+          <span className="text-base font-black text-accent">{balances.visa.toLocaleString('en-US')}</span>
         </div>
         <div className="px-4 py-2 bg-blue-500/10 rounded-2xl flex flex-col gap-0.5 shrink-0 border border-blue-500/20 min-w-[100px]">
           <span className="text-[10px] text-muted-foreground font-bold">إنستا باي</span>
-          <span className="text-base font-black text-blue-500">{balances.instapay.toLocaleString()}</span>
+          <span className="text-base font-black text-blue-500">{balances.instapay.toLocaleString('en-US')}</span>
         </div>
       </div>
 

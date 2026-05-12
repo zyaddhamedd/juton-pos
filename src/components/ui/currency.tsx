@@ -18,7 +18,7 @@ export function Currency({ amount, currency = "ج.م", className, size = "md" }:
   }, [])
 
   const safeAmount = amount ?? 0
-  const formatted = new Intl.NumberFormat("ar-EG", {
+  const formatted = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(safeAmount)

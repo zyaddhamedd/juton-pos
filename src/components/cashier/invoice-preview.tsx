@@ -119,7 +119,7 @@ export function InvoicePreview({ isOpen, onClose, invoiceId, items, total, custo
                     <div className="space-y-1">
                        <div className="flex lg:justify-end items-center gap-3">
                           <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">تاريخ الصدور</span>
-                          <span className="text-sm font-black text-slate-900">{new Date().toLocaleDateString('ar-EG')}</span>
+                          <span className="text-sm font-black text-slate-900">{new Date().toLocaleDateString('en-US')}</span>
                        </div>
                        <div className="flex lg:justify-end items-center gap-3">
                           <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">رقم الفاتورة</span>

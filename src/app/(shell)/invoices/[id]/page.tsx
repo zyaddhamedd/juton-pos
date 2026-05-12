@@ -79,11 +79,11 @@ export default function InvoiceDetailsPage() {
                      <div className="flex flex-wrap items-center gap-4 text-xs font-bold text-muted-foreground">
                         <div className="flex items-center gap-1.5">
                            <Calendar className="h-3.5 w-3.5" />
-                           {format(new Date(invoice.date), "dd MMMM yyyy", { locale: ar })}
+                           {format(new Date(invoice.date), "dd MMMM yyyy")}
                         </div>
                         <div className="flex items-center gap-1.5">
                            <Clock className="h-3.5 w-3.5" />
-                           {format(new Date(invoice.date), "HH:mm a", { locale: ar })}
+                           {format(new Date(invoice.date), "HH:mm a")}
                         </div>
                      </div>
                   </div>
@@ -119,11 +119,11 @@ export default function InvoiceDetailsPage() {
                              </div>
                              <div className="flex justify-between lg:justify-center items-center">
                                 <span className="lg:hidden text-[10px] font-bold text-muted-foreground">السعر:</span>
-                                <span className="font-bold text-sm">{item.price.toLocaleString()} ج.م</span>
+                                <span className="font-bold text-sm">{item.price.toLocaleString('en-US')} ج.م</span>
                              </div>
                              <div className="flex justify-between lg:justify-start items-center lg:text-left">
                                 <span className="lg:hidden text-[10px] font-bold text-muted-foreground">الإجمالي:</span>
-                                <span className="font-black text-sm text-primary">{item.total.toLocaleString()} ج.م</span>
+                                <span className="font-black text-sm text-primary">{item.total.toLocaleString('en-US')} ج.م</span>
                              </div>
                           </div>
                         ))}
@@ -136,7 +136,7 @@ export default function InvoiceDetailsPage() {
                   <div className="space-y-4 w-full lg:w-64">
                      <div className="flex justify-between items-center text-sm font-bold text-muted-foreground">
                         <span>المجموع الفرعي</span>
-                        <span>{invoice.total.toLocaleString()} ج.م</span>
+                        <span>{invoice.total.toLocaleString('en-US')} ج.م</span>
                      </div>
                      <div className="flex justify-between items-center text-sm font-bold text-muted-foreground">
                         <span>الخصم</span>
@@ -144,7 +144,7 @@ export default function InvoiceDetailsPage() {
                      </div>
                      <div className="flex justify-between items-center text-lg lg:text-xl font-black text-foreground pt-4 border-t border-border/10">
                         <span>الإجمالي</span>
-                        <span className="text-primary">{invoice.total.toLocaleString()} ج.م</span>
+                        <span className="text-primary">{invoice.total.toLocaleString('en-US')} ج.م</span>
                      </div>
                   </div>
                </div>
@@ -171,10 +171,10 @@ export default function InvoiceDetailsPage() {
                               <div className="flex-1 pb-6">
                                  <div className="flex justify-between items-start">
                                     <div>
-                                       <p className="text-sm font-black text-foreground">تم سداد {payment.amount.toLocaleString()} ج.م</p>
+                                       <p className="text-sm font-black text-foreground">تم سداد {payment.amount.toLocaleString('en-US')} ج.م</p>
                                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest opacity-60">بواسطة {payment.method === "cash" ? "نقدي" : payment.method === "bank" ? "تحويل بنكي" : "بطاقة"}</p>
                                     </div>
-                                    <p className="text-[10px] font-bold text-muted-foreground">{format(new Date(payment.date), "dd MMM, HH:mm", { locale: ar })}</p>
+                                    <p className="text-[10px] font-bold text-muted-foreground">{format(new Date(payment.date), "dd MMM, HH:mm")}</p>
                                  </div>
                               </div>
                            </div>
@@ -213,7 +213,7 @@ export default function InvoiceDetailsPage() {
                   <div className="p-4 bg-danger/5 border border-danger/10 rounded-2xl space-y-3">
                      <div className="flex justify-between items-center">
                         <span className="text-[10px] font-black text-danger uppercase tracking-widest">المبلغ المتبقي</span>
-                        <span className="text-lg font-black text-danger">{invoice.remainingAmount.toLocaleString()} ج.م</span>
+                        <span className="text-lg font-black text-danger">{invoice.remainingAmount.toLocaleString('en-US')} ج.م</span>
                      </div>
                      <div className="h-1.5 w-full bg-danger/10 rounded-full overflow-hidden">
                         <div 

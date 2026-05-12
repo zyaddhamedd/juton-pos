@@ -33,7 +33,7 @@ export function InvoiceListItem({ invoice }: InvoiceListItemProps) {
             </div>
             
             <div className="flex items-center gap-3 text-[10px] text-muted-foreground font-medium">
-              <span>{format(new Date(invoice.date), "dd MMM yyyy • HH:mm", { locale: ar })}</span>
+              <span>{format(new Date(invoice.date), "dd MMM yyyy • HH:mm")}</span>
               <span className="hidden sm:inline opacity-30">•</span>
               <span className="hidden sm:inline uppercase tracking-widest text-[8px] font-black">{invoice.paymentMethod}</span>
             </div>
@@ -45,12 +45,12 @@ export function InvoiceListItem({ invoice }: InvoiceListItemProps) {
           <div className="text-right space-y-0.5">
             <p className="text-[8px] font-black text-muted-foreground uppercase tracking-widest opacity-40">المبلغ الإجمالي</p>
             <div className="flex items-center justify-end gap-1">
-              <span className="text-sm lg:text-base font-black text-foreground">{invoice.total.toLocaleString()}</span>
+              <span className="text-sm lg:text-base font-black text-foreground">{invoice.total.toLocaleString('en-US')}</span>
               <span className="text-[9px] font-bold text-muted-foreground">ج.م</span>
             </div>
             {invoice.remainingAmount > 0 && (
               <div className="flex items-center justify-end gap-1 text-danger">
-                <span className="text-[10px] font-black">-{invoice.remainingAmount.toLocaleString()}</span>
+                <span className="text-[10px] font-black">-{invoice.remainingAmount.toLocaleString('en-US')}</span>
                 <span className="text-[8px] font-bold">باقي</span>
               </div>
             )}

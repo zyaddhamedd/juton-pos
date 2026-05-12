@@ -78,7 +78,7 @@ export function CashflowTimeline() {
                   
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-muted-foreground text-[10px] font-medium">
-                      {tx.timestamp instanceof Date ? format(tx.timestamp, "HH:mm", { locale: ar }) : format(new Date(tx.timestamp), "HH:mm", { locale: ar })}
+                      {tx.timestamp instanceof Date ? format(tx.timestamp, "HH:mm") : format(new Date(tx.timestamp), "HH:mm")}
                     </span>
                     <span className="text-muted-foreground/30 text-[10px]">•</span>
                     <p className="text-[11px] text-muted-foreground truncate max-w-[150px]">{tx.description}</p>

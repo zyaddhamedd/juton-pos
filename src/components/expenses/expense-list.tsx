@@ -122,7 +122,7 @@ function ExpenseTableRow({ expense, index, onEdit, onDelete, onView }: { expense
         <Currency amount={expense.amount} size="sm" className="font-black" />
       </td>
       <td className="px-6 py-4 text-[10px] font-bold text-muted-foreground">
-        {format(new Date(expense.date), "dd MMM yyyy", { locale: ar })}
+        {format(new Date(expense.date), "dd MMM yyyy")}
       </td>
       <td className="px-6 py-4 text-center">
         <StatusBadge status={expense.status} />
@@ -159,7 +159,7 @@ function ExpenseMobileCard({ expense, index, onEdit, onDelete, onView }: { expen
             <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{category?.label}</span>
           </div>
           <h3 className="text-xs font-black text-foreground">{expense.title}</h3>
-          <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest tabular-nums">{expense.id} • {format(new Date(expense.date), "dd MMM yyyy", { locale: ar })}</p>
+          <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest tabular-nums">{expense.id} • {format(new Date(expense.date), "dd MMM yyyy")}</p>
         </div>
         <StatusBadge status={expense.status} />
       </div>

@@ -59,7 +59,7 @@ export function FinancialSummary() {
           <p className="text-[10px] font-bold text-blue-200/60 mb-2 uppercase tracking-[3px]">إجمالي الرصيد المتاح</p>
           <div className="flex items-baseline gap-3">
             <h2 className="text-4xl lg:text-5xl font-black tabular-nums tracking-tight">
-              {total.toLocaleString()}
+              {total.toLocaleString('en-US')}
             </h2>
             <span className="text-lg font-medium opacity-60">ج.م</span>
           </div>
@@ -73,7 +73,7 @@ export function FinancialSummary() {
               </div>
               <div className="space-y-0.5">
                 <p className="text-[9px] font-bold text-white/40">{item.label}</p>
-                <p className="text-xs font-black tabular-nums">{item.amount.toLocaleString()}</p>
+                <p className="text-xs font-black tabular-nums">{item.amount.toLocaleString('en-US')}</p>
               </div>
             </div>
           ))}

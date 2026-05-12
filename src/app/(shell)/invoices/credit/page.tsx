@@ -37,7 +37,7 @@ export default function CreditManagementPage() {
                  <div className="space-y-1">
                     <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-40">إجمالي المديونيات</p>
                     <div className="flex items-center gap-2 text-3xl font-black text-danger tracking-tighter">
-                       {totalDebt.toLocaleString()}
+                       {totalDebt.toLocaleString('en-US')}
                        <span className="text-sm font-bold text-muted-foreground">ج.م</span>
                     </div>
                  </div>
@@ -45,7 +45,7 @@ export default function CreditManagementPage() {
                  <div className="space-y-1">
                     <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-40">متأخرات حرجة</p>
                     <div className="flex items-center gap-2 text-3xl font-black text-foreground tracking-tighter">
-                       {overdueDebt.toLocaleString()}
+                       {overdueDebt.toLocaleString('en-US')}
                        <span className="text-sm font-bold text-muted-foreground">ج.م</span>
                     </div>
                  </div>
@@ -118,7 +118,7 @@ export default function CreditManagementPage() {
                       <div className="flex justify-between items-end">
                          <div>
                             <p className="text-[8px] font-black text-muted-foreground uppercase tracking-widest opacity-40">إجمالي المديونية</p>
-                            <p className="text-lg font-black text-danger tracking-tighter">{customer.debt.toLocaleString()} <span className="text-[10px] font-bold">ج.م</span></p>
+                            <p className="text-lg font-black text-danger tracking-tighter">{customer.debt.toLocaleString('en-US')} <span className="text-[10px] font-bold">ج.م</span></p>
                          </div>
                          <button className="text-[9px] font-black text-primary uppercase tracking-widest hover:underline">تحصيل الآن</button>
                       </div>
