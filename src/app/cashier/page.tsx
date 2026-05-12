@@ -240,28 +240,40 @@ export default function CashierPage() {
       <AnimatePresence>
         {items.length > 0 && view === 'products' && (
           <motion.div 
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
-            exit={{ y: 100 }}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
             className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background to-transparent lg:hidden z-40"
           >
-            <Button 
-              variant="primary" 
-              size="xl" 
-              className="w-full h-16 rounded-2xl shadow-2xl shadow-primary/40 relative overflow-hidden group"
-              onClick={() => setView('cart')}
+            <motion.div
+              key={getItemCount()}
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-              <div className="flex items-center justify-between w-full px-2 relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className="bg-white/20 h-10 w-10 rounded-xl flex items-center justify-center font-black">
-                    {getItemCount()}
+              <Button 
+                variant="primary" 
+                size="xl" 
+                className="w-full h-16 rounded-2xl shadow-2xl shadow-primary/40 relative overflow-hidden group border-2 border-accent/20"
+                onClick={() => setView('cart')}
+              >
+                <div className="absolute inset-0 bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                <div className="flex items-center justify-between w-full px-2 relative z-10">
+                  <div className="flex items-center gap-3">
+                    <motion.div 
+                      key={getItemCount()}
+                      initial={{ scale: 0.5, rotate: -20 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      className="bg-white/20 h-10 w-10 rounded-xl flex items-center justify-center font-black"
+                    >
+                      {getItemCount()}
+                    </motion.div>
+                    <span className="font-black text-lg">عرض السلة</span>
                   </div>
-                  <span className="font-black text-lg">عرض السلة</span>
+                  <Currency amount={getTotal() * 1.14} size="md" className="text-white" />
                 </div>
-                <Currency amount={getTotal() * 1.14} size="md" className="text-white" />
-              </div>
-            </Button>
+              </Button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
