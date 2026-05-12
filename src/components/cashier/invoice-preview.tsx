@@ -180,10 +180,10 @@ export function InvoicePreview({ isOpen, onClose, invoiceId, items, total, custo
                                 </td>
                                 <td className="p-5 text-center font-black text-slate-900">{item.quantity}</td>
                                 <td className="p-5 text-center font-bold text-slate-600">
-                                   <Currency amount={item.price} size="sm" currencyClass="text-[10px]" />
+                                   <Currency amount={item.price} size="sm" />
                                 </td>
                                 <td className="p-5 text-left font-black text-slate-900">
-                                   <Currency amount={item.price * item.quantity} size="sm" currencyClass="text-[10px]" />
+                                   <Currency amount={item.price * item.quantity} size="sm" />
                                 </td>
                              </tr>
                           ))}
@@ -217,7 +217,7 @@ export function InvoicePreview({ isOpen, onClose, invoiceId, items, total, custo
                     <div className="h-px bg-slate-200 mx-4" />
                     <div className="flex justify-between items-center p-6 bg-[#003da5] rounded-[2rem] text-white shadow-xl shadow-blue-900/20">
                        <span className="text-xs font-black uppercase tracking-widest">المبلغ النهائي</span>
-                       <span className="text-2xl font-black"><Currency amount={total} size="lg" currencyClass="text-sm" /></span>
+                       <span className="text-2xl font-black"><Currency amount={total} size="lg" /></span>
                     </div>
                  </div>
               </div>
