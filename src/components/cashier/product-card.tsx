@@ -8,6 +8,7 @@ import { Package, Plus, Check } from "lucide-react"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import React from "react"
+import { useSoundEffect } from "@/hooks/use-sound"
 
 interface ProductCardProps {
   product: Product
@@ -17,6 +18,7 @@ interface ProductCardProps {
 export function ProductCard({ product, onAdd }: ProductCardProps) {
   const [isAdding, setIsAdding] = React.useState(false)
   const controls = useAnimation()
+  const { play } = useSoundEffect()
   
   const isOutOfStock = product.stock === 0
   const isLowStock = product.stock > 0 && product.stock < 10
@@ -25,6 +27,7 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
     e.stopPropagation()
     if (isOutOfStock) return
     
+    play('add')
     setIsAdding(true)
     onAdd()
     

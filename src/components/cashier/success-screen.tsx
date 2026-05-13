@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Currency } from "@/components/ui/currency"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { useSoundEffect } from "@/hooks/use-sound"
 
 import { InvoicePreview } from "./invoice-preview"
 import * as React from "react"
@@ -20,6 +21,11 @@ interface SuccessScreenProps {
 
 export function SuccessScreen({ total, invoiceId, items, customer, onNewInvoice }: SuccessScreenProps) {
   const [isInvoiceOpen, setIsInvoiceOpen] = React.useState(false)
+  const { play } = useSoundEffect()
+
+  React.useEffect(() => {
+    play('success')
+  }, [play])
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center p-4 lg:p-6 bg-[radial-gradient(circle_at_top,_var(--color-success),_transparent_70%)] opacity-95">
