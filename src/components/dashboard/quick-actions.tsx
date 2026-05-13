@@ -17,36 +17,44 @@ function ActionItem({ label, icon: Icon, href, color, description }: ActionItemP
   return (
     <Link href={href} className="block group w-full">
       <motion.div 
-        whileHover={{ y: -8, scale: 1.02 }}
-        whileTap={{ 
-          scale: 0.92, 
-          rotate: -1,
-          boxShadow: "0 0 0 rgba(0,0,0,0)" 
-        }}
+        whileHover={{ y: -10, scale: 1.02 }}
+        whileTap={{ scale: 0.95 }}
         className={cn(
-          "relative h-full flex flex-col items-center justify-center p-6 rounded-[40px] transition-all duration-500 overflow-hidden border border-white/10 shadow-xl",
-          "lg:bg-card lg:border-border/40 lg:text-foreground", // Desktop Styles
-          "bg-gradient-to-br text-white shadow-lg", // Mobile Base
-          color // This will now provide the gradient for mobile
+          "relative h-full flex flex-col items-center justify-center p-7 rounded-[48px] transition-all duration-700 overflow-hidden border border-white/10 shadow-2xl",
+          "glass-card lg:hover:border-white/20", // Base style
+          "text-white",
+          color.includes('blue') && "bg-gradient-to-br from-primary via-primary-dark to-primary-light shadow-primary/20",
+          color.includes('rose') && "bg-gradient-to-br from-danger via-danger/90 to-danger/80 shadow-danger/20",
+          color.includes('orange') && "bg-gradient-to-br from-accent via-accent/90 to-[#D4A900] shadow-accent/20 text-black",
+          color.includes('emerald') && "bg-gradient-to-br from-success via-success/90 to-[#059669] shadow-success/20"
         )}
       >
-        {/* Glow Effect for Mobile */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-white/20 blur-2xl rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700" />
+        {/* Glow Effect */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000" />
         
         {/* Background Icon Watermark */}
-        <Icon className="absolute -left-4 -bottom-4 w-24 h-24 text-white opacity-[0.1] -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+        <Icon className={cn(
+          "absolute -left-4 -bottom-4 w-28 h-28 opacity-[0.1] -rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-1000",
+          color.includes('orange') ? "text-black" : "text-white"
+        )} />
 
-        <div className="w-16 h-16 rounded-[24px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[15deg] shadow-lg border border-white/20">
-          <Icon className="w-8 h-8 text-white drop-shadow-md" />
+        <div className={cn(
+          "w-18 h-18 rounded-[28px] bg-white/20 backdrop-blur-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[15deg] shadow-2xl border border-white/25",
+          color.includes('orange') && "bg-black/10 border-black/10"
+        )}>
+          <Icon className={cn(
+            "w-9 h-9 drop-shadow-2xl",
+            color.includes('orange') ? "text-black" : "text-white"
+          )} />
         </div>
         
         <div className="text-center relative z-10">
-          <span className="block text-lg font-black tracking-tight mb-1">{label}</span>
-          <span className="block text-[10px] font-bold text-white/70 leading-tight px-2">{description}</span>
+          <span className="block text-xl font-black tracking-tight mb-1.5">{label}</span>
+          <span className={cn(
+            "block text-xs font-bold leading-tight px-3",
+            color.includes('orange') ? "text-black/60" : "text-white/70"
+          )}>{description}</span>
         </div>
-        
-        {/* Sparkle effect on tap */}
-        <div className="absolute inset-0 bg-white/0 active:bg-white/10 transition-colors duration-200" />
       </motion.div>
     </Link>
   )
@@ -59,28 +67,28 @@ export function QuickActions() {
       description: "فتح الكاشير فوراً",
       icon: Plus,
       href: "/cashier",
-      color: "from-blue-600 to-blue-400 lg:from-transparent lg:to-transparent"
+      color: "blue"
     },
     {
       label: "صرف مالي",
       description: "تسجيل مصروف جديد",
       icon: Receipt,
       href: "/expenses",
-      color: "from-rose-600 to-rose-400 lg:from-transparent lg:to-transparent"
+      color: "rose"
     },
     {
       label: "جرد مخزني",
       description: "تحديث كميات الرف",
       icon: PackageSearch,
       href: "/inventory/count",
-      color: "from-orange-600 to-orange-400 lg:from-transparent lg:to-transparent"
+      color: "orange"
     },
     {
       label: "تحصيل ديون",
       description: "سداد حساب عميل",
       icon: Wallet2,
       href: "/customers",
-      color: "from-emerald-600 to-emerald-400 lg:from-transparent lg:to-transparent"
+      color: "emerald"
     }
   ]
 

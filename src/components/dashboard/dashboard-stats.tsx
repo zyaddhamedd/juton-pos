@@ -16,40 +16,49 @@ interface StatCardProps {
 function StatCard({ title, value, change, trend, icon: Icon, color }: StatCardProps) {
   return (
     <motion.div 
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -6, scale: 1.02 }}
       whileTap={{ scale: 0.96 }}
-      className="relative group bg-card border border-border/50 rounded-[24px] p-4 shadow-sm overflow-hidden"
+      className={cn(
+        "relative group glass-card rounded-[28px] p-5 overflow-hidden transition-all duration-500",
+        "hover:shadow-2xl hover:border-white/20",
+        color === "bg-accent" && "hover:shadow-accent/10 hover:border-accent/30",
+        color === "bg-danger" && "hover:shadow-danger/10 hover:border-danger/30",
+        color === "bg-primary" && "hover:shadow-primary/10 hover:border-primary/30"
+      )}
     >
       {/* Background Decorative Blur */}
       <div className={cn(
-        "absolute -right-8 -bottom-8 w-32 h-32 blur-[50px] opacity-[0.06] transition-all duration-700 group-hover:opacity-[0.12]",
+        "absolute -right-8 -bottom-8 w-32 h-32 blur-[40px] opacity-[0.08] transition-all duration-700 group-hover:opacity-[0.2] group-hover:scale-150",
         color
       )} />
 
       <div className="relative z-10 flex flex-col gap-4">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider truncate">{title}</span>
-            <div className="flex items-baseline gap-1.5 flex-wrap">
-              <h3 className="text-lg font-black tabular-nums tracking-tighter truncate">{value}</h3>
+            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] truncate">{title}</span>
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <h3 className="text-xl font-black tabular-nums tracking-tighter truncate">{value}</h3>
               <div className={cn(
-                "text-[9px] font-bold",
-                trend === "up" ? "text-success" : "text-destructive"
+                "text-[10px] font-black px-1.5 py-0.5 rounded-lg",
+                trend === "up" ? "text-success bg-success/10" : "text-danger bg-danger/10"
               )}>
                 {change}
               </div>
             </div>
           </div>
           <div className={cn(
-            "w-9 h-9 shrink-0 rounded-xl flex items-center justify-center border border-border/50 bg-muted/20 shadow-inner",
-            "transition-all duration-500 group-hover:rotate-6"
+            "w-10 h-10 shrink-0 rounded-2xl flex items-center justify-center border border-white/5 bg-white/5 shadow-inner",
+            "transition-all duration-500 group-hover:rotate-12 group-hover:scale-110",
+            color === "bg-accent" && "group-hover:bg-accent/20 group-hover:border-accent/30",
+            color === "bg-danger" && "group-hover:bg-danger/20 group-hover:border-danger/30",
+            color === "bg-primary" && "group-hover:bg-primary/20 group-hover:border-primary/30"
           )}>
-            <Icon className={cn("w-4.5 h-4.5", color.replace('bg-', 'text-'))} />
+            <Icon className={cn("w-5 h-5", color.replace('bg-', 'text-'))} />
           </div>
         </div>
 
         {/* Mini Sparkline - More Compact */}
-        <div className="h-7 w-full opacity-40 group-hover:opacity-80 transition-opacity duration-500">
+        <div className="h-8 w-full opacity-30 group-hover:opacity-100 transition-all duration-700">
           <svg className="w-full h-full" viewBox="0 0 100 40" preserveAspectRatio="none">
             <motion.path
               initial={{ pathLength: 0 }}
@@ -61,7 +70,7 @@ function StatCard({ title, value, change, trend, icon: Icon, color }: StatCardPr
               fill="none"
               stroke="currentColor"
               strokeWidth="4"
-              className={trend === "up" ? "text-success" : "text-destructive"}
+              className={trend === "up" ? "text-success" : "text-danger"}
               strokeLinecap="round"
             />
           </svg>
@@ -79,7 +88,7 @@ export function DashboardStats() {
       change: "+12.5%",
       trend: "up",
       icon: TrendingUp,
-      color: "bg-blue-500"
+      color: "bg-primary"
     },
     {
       title: "رصيد الخزينة",
@@ -87,7 +96,7 @@ export function DashboardStats() {
       change: "+5.2%",
       trend: "up",
       icon: Wallet,
-      color: "bg-emerald-500"
+      color: "bg-accent"
     },
     {
       title: "نواقص المخزون",
@@ -95,7 +104,7 @@ export function DashboardStats() {
       change: "-2",
       trend: "down",
       icon: Package2,
-      color: "bg-orange-500"
+      color: "bg-danger"
     },
     {
       title: "عملاء نشطون",
@@ -108,7 +117,7 @@ export function DashboardStats() {
   ]
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
       {stats.map((stat, index) => (
         <StatCard key={index} {...stat as any} />
       ))}
